@@ -4,15 +4,7 @@ body{
 	font-family: Ubuntu;
 }
 
-/* to do figure out how to center this
-
-idea: wrap inner "absolute" element in outer "relative" element
-
-follow this guide:
-
-https://www.jakpsatweb.cz/css/css-vertical-center-solution.html
-
- */
+/*  */
 .header-element{
     position:relative;
     overflow:hidden;
@@ -29,7 +21,7 @@ https://www.jakpsatweb.cz/css/css-vertical-center-solution.html
     display: table;
     top: 0px;
     left: 0px;
-    height: 50px;
+    height: 50px !important;
     width:100%;
     padding-left: 10%;
     z-index: 1000;
@@ -71,12 +63,13 @@ https://www.jakpsatweb.cz/css/css-vertical-center-solution.html
     width: 5%;
 }
 
-.header-main-element > a{
+a > .header-main-element{
 	color: white;
 	text-decoration: none;
+	height: 100%;
 }
 
-.header-std-element > a{
+a > .header-std-element{
 	color: white;
 	text-decoration: none;
 }
@@ -84,23 +77,36 @@ https://www.jakpsatweb.cz/css/css-vertical-center-solution.html
 .header-main-element:hover{
     background-color: #808080;
     background: #008ae6;
-    cursor: pointer;
 }
 
 .header-std-element:hover{
     background-color: #808080;
     background: #008ae6;
-    cursor: pointer;
 }
 
+.center{
+	text-align: center;
+}
+
+.right{
+	text-align: right;
+}
+
+.left{
+	text-align: left;
+}
 /*  */
 .row{
-    position: absolute;
+	display: flex;
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 5%;
+	margin-top: 60px;
     width: 90%;
-    height: 100%;
+}
+
+.col{
+	flex: 1;
+	padding: 1em;
 }
 
 /* only adds up to 49% (47 + 1% margin on both sides)
@@ -112,5 +118,16 @@ https://www.jakpsatweb.cz/css/css-vertical-center-solution.html
     float: left;
     width: 47%;
     margin: 1%;
-    border-style: solid;
+}
+
+.inline-quarter{
+	position: relative;
+	float: left; 
+	width: 22%;
+	margin: 1%;
+}
+
+.inline-half > *{
+	width:100%;
+	height: auto;
 }
