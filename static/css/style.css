@@ -1,0 +1,91 @@
+/* mah style sheet  */
+
+body{
+ 
+}
+
+/* to do figure out how to center this
+
+idea: wrap inner "absolute" element in outer "relative" element
+
+follow this guide:
+
+https://www.jakpsatweb.cz/css/css-vertical-center-solution.html
+
+ */
+.header-element{
+    position:relative;
+    overflow:hidden;
+    display:table;
+    width: 8%;
+    top:0px;
+    float:left;
+}
+
+.header{
+    background-color: #33adff;
+    background: linear-gradient(to top, #33adff, #66c2ff);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+    width:100%;
+    text-align: center;
+    vertical-align: center;
+    padding-left: 10%;
+}
+
+.header-main-element{
+    background-color: #33adff;
+    background: linear-gradient(to top, #33adff, #66c2ff);
+    position: relative;
+    display: table;
+    overflow: hidden;
+    float: left;
+    height: 50px;
+    width: 12%
+}
+
+.header-std-element{
+    background-color: #33adff;
+    background: linear-gradient(to top, #33adff, #66c2ff);
+    position: relative;
+    float: left;
+    height: 50px;
+    top: 0px;
+    width: 8%;
+}
+
+.header-main-element:hover{
+    background-color: #808080;
+    background: #008ae6;
+    cursor: pointer;
+}
+
+.header-std-element:hover{
+    background-color: #808080;
+    background: #008ae6;
+    cursor: pointer;
+}
+
+/*  */
+.row{
+    position: absolute;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    width: 90%;
+    height: 100%;
+}
+
+/* only adds up to 49% (47 + 1% margin on both sides)
+   This is because each element has a Teeeny tiny amount of white space  
+   If we do 48% with 1% margin, we cannot fit 2 elements per line.
+ */
+.inline-half{
+    position: relative;
+    float: left;
+    width: 47%;
+    margin: 1%;
+    border-style: solid;
+}
