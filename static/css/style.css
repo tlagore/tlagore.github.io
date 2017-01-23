@@ -37,12 +37,15 @@ body{
 	vertical-align: middle;
     line-height:50px; /* keep the same as height */
 	text-align: center;
-	font-size: 18px;
+	
+	/* makes font size dynamic with page resize, but only to a minimum of 14 point font. */
+	font-size: calc(14px + .5vw);
+	
+	padding-left:15px;
+	padding-right:15px;
 	
     float: left;
-    height: 50px;
-    width: 10%
-    
+    height: 50px;    
 }
 
 .header-std-element{
@@ -50,36 +53,61 @@ body{
     background: linear-gradient(to top, #33adff, #66c2ff);
     position: relative;
 	display: table-cell;
-	
+
 	/* The following 3 lines make the text centered vertically. DO NOT CHANGE THE ORDER. Man css sucks */
 	vertical-align: middle;
     line-height:50px; /* keep the same as height */
 	text-align: center;
-	font-size: 16px;
+	
+	/* makes font size dynamic with page resize, but only to a minimum of 12point font. */
+	font-size: calc(12px + .3vw);/*.85vw;*/
+	
+	padding-left:15px;
+	padding-right:15px;
 	
     float: left;
     height: 50px;
     top: 0px;
-    width: 5%;
 }
 
-a > .header-main-element{
-	color: white;
+/* The following 3 stylings produce an under */
+.header-std-element, .header-main-element{
+	position: relative;
+	color: #000;
 	text-decoration: none;
+}
+
+.header-std-element:before, .header-main-element:before{
+	content: "";
+	position: absolute;
+	
+	/* width 75%, 12.5% on left to give a 12.5% margin on both sides of underline */
+	width: 75%;
+	left: 12.5%;
+	height: 2px;
+	bottom: 10px;
+	
+	background-color: white;
+	visibility: hidden;
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transition: all 0.5s ease-in-out 0s;
+	transition: all 0.5s ease-in-out 0s;
+}
+
+.header-std-element:hover:before, .header-main-element:hover:before{
+	visibility: visible;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1)
+}
+
+
+.header-main-element, .header-std-element{
+	color: white;
 	height: 100%;
 }
 
-a > .header-std-element{
-	color: white;
-	text-decoration: none;
-}
-
-.header-main-element:hover{
-    background-color: #808080;
-    background: #008ae6;
-}
-
-.header-std-element:hover{
+.header-main-element:hover, .header-std-element:hover{
     background-color: #808080;
     background: #008ae6;
 }
