@@ -1,0 +1,9 @@
+/* mah style sheet  */
+
+body{
+    font-family: Ubuntu;
+    background-image: url('../assets/Vancouver_at_Night.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
