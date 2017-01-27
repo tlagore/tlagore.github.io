@@ -1,5 +1,3 @@
-
-
 /* mah style sheet  */
 
 body{
@@ -19,8 +17,6 @@ h2{
 
 .background-image{
     left: 0px;
-    top: 50px;
-    position: absolute;
     z-index: -1;
 }
 
@@ -28,6 +24,19 @@ h2{
     width: 100%;
     max-width: 100%;
     height: auto;
+}
+
+
+.quarter-bottom{
+    position: absolute;
+    height: 25%;
+    top: 30%;
+    opacity: .3;
+    background-color: black;
+}
+
+.container{
+    position: relative;
 }
 
 .background{
@@ -163,7 +172,6 @@ h2{
 
 /*  */
 .row{
-    display: flex;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 60px;
@@ -186,9 +194,7 @@ h2{
     margin: 1%;
 }
 
-.inline-full{
-    position: relative;
-    float: left;
+.full{
     width: 97%;
     margin: 1%;
 }
