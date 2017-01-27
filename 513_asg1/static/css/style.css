@@ -3,7 +3,35 @@
 /* mah style sheet  */
 
 body{
+    min-height:100vh;
     font-family: Ubuntu;
+}
+/* for testing purposes
+div{
+    border-thickness: 1px;
+    border-style: solid;
+}
+*/
+
+h2{
+    color: #33adff;
+}
+
+.background-image{
+    left: 0px;
+    top: 50px;
+    position: absolute;
+    z-index: -1;
+}
+
+.full-width{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.background{
+    background-color: white;
 }
 
 /*  
@@ -17,6 +45,7 @@ body{
     top:0px;
     float:left;
 }
+
 
 .icon{
     filter: brightness(0) invert(1);
@@ -86,28 +115,28 @@ body{
 }
 
 .header-std-element:before, .header-main-element:before{
-				content: "";
-				position: absolute;
-				
-				/* width 75%, 12.5% on left to give a 12.5% margin on both sides of underline */
-				width: 75%;
-				left: 12.5%;
-				height: 2px;
-				bottom: 10px;
-				
-				background-color: white;
-				visibility: hidden;
-				-webkit-transform: scaleX(0);
-				transform: scaleX(0);
-				-webkit-transition: all 0.5s ease-in-out 0s;
-				transition: all 0.5s ease-in-out 0s;
-			    }
+    content: "";
+    position: absolute;
+    
+    /* width 75%, 12.5% on left to give a 12.5% margin on both sides of underline */
+    width: 75%;
+    left: 12.5%;
+    height: 2px;
+    bottom: 10px;
+    
+    background-color: white;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    transition: all 0.5s ease-in-out 0s;
+}
 
 .header-std-element:hover:before, .header-main-element:hover:before{
-				      visibility: visible;
-				      -webkit-transform: scaleX(1);
-				      transform: scaleX(1)
-				  }
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1)
+}
 
 
 .header-main-element, .header-std-element{
@@ -116,9 +145,9 @@ body{
 }
 
 .header-main-element:hover, .header-std-element:hover{
-				background-color: #808080;
-				background: #008ae6;
-			    }
+    background-color: #808080;
+    background: #008ae6;
+}
 
 .center{
     text-align: center;
@@ -131,6 +160,7 @@ body{
 .left{
     text-align: left;
 }
+
 /*  */
 .row{
     display: flex;
@@ -153,6 +183,13 @@ body{
     position: relative;
     float: left;
     width: 47%;
+    margin: 1%;
+}
+
+.inline-full{
+    position: relative;
+    float: left;
+    width: 97%;
     margin: 1%;
 }
 
