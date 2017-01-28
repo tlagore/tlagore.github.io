@@ -1,8 +1,17 @@
 /* mah style sheet  */
 
+html{
+    
+}
+
+
 body{
-    min-height:100vh;
+    margin: 0;
     font-family: Ubuntu;
+}
+
+div{
+    display: block;
 }
 /* for testing purposes
 div{
@@ -20,29 +29,51 @@ h2{
     z-index: -1;
 }
 
+.half-width{
+    width: 50%;
+    max-width: 50%;
+    height: auto;
+}
+
 .full-width{
     width: 100%;
     max-width: 100%;
     height: auto;
 }
 
-
 .quarter-bottom{
     position: absolute;
     height: 25%;
-    top: 30%;
-    opacity: .3;
-    background-color: black;
+    max-height: 25%;
+    top: 74%;
+    background-color: rgba(0,0,0,0.3);
+    /*opacity: .3;
+    background-color: black;*/
+}
+
+.container-no-margin{
+    width: 100%;
+    margin-top: 50px;;
 }
 
 .container{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.overlay-text{
+    opacity: 1;
+    font-weight: bold;
+    font-size: calc(14px + .2vw);
+}
+
+.overlay-container{
     position: relative;
+    display: inline-block;
+    color: white;
 }
-
-.background{
-    background-color: white;
-}
-
 /*  
 
 */
@@ -172,15 +203,30 @@ h2{
 
 /*  */
 .row{
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 60px;
-    width: 90%;
+    display: relative;
 }
 
 .col{
     flex: 1;
     padding: 1em;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+tr:nth-child(even) td{
+    background-color: rgba(0,0,0,0.3);
+}
+
+th{
+    color: black;
+    background-color: rgba(0,0,0,0.4);
+}
+
+td{
+    color: black;
+    text-align: center;
 }
 
 /* only adds up to 49% (47 + 1% margin on both sides)
@@ -189,7 +235,7 @@ h2{
 */
 .inline-half{
     position: relative;
-    float: left;
+    float: right;
     width: 47%;
     margin: 1%;
 }
