@@ -1,4 +1,5 @@
 /* mah style sheet  */
+@import url("fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin");
 
 html{
     height: 100%;
