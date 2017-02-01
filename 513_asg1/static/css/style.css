@@ -1,8 +1,17 @@
-/* mah style sheet  */
+html{
+    height: 100%;
+    width: 100%;
+}
 
 body{
-    min-height:100vh;
-    font-family: Ubuntu;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: Calibri;
+}
+
+div{
+    display: block;
 }
 /* for testing purposes
 div{
@@ -11,38 +20,105 @@ div{
 }
 */
 
-h2{
-    color: #33adff;
+.background-image{
+    background-image: url('../assets/desserts.jpg');
+    background-size: 100% auto%;
+    background-repeat: no-repeat;
+    background-position: left top;
+/*    left: 0px;
+    z-index: -1;*/
 }
 
-.background-image{
-    left: 0px;
-    z-index: -1;
+.margin-5{
+    margin: 5%;
+}
+
+.full-height{
+    height: 100%;
+    min-height: 100%; !important;
+    width: auto;
+}
+
+.inline-image{
+    max-height: 20%;
+}
+
+.half-width{
+    width: 50%;
+    max-width: 50%;
+    height: auto;
+}
+
+h3 > a{
+    color: white;
+    text-decoration: none;
+}
+
+.headline{
+    position: absolute;
+    margin-right: 5%;
+    margin-top: -50%;
+    width: 70%;
+    background: linear-gradient(to top left, #33adff, #b3e0ff);
+    opacity: .9;
+    z-index: 1;
+}
+
+.content-display{
+    position: absolute;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: -40%;
+    width: 80%;
+    background: linear-gradient(to bottom right, #33adff, #b3e0ff);
+    opacity: .9;
+    z-index: 1;
 }
 
 .full-width{
     width: 100%;
-    max-width: 100%;
+    min-width: 100% !important;
     height: auto;
 }
 
+.list{
+    width: 85%;
+}
 
 .quarter-bottom{
     position: absolute;
     height: 25%;
-    top: 30%;
-    opacity: .3;
-    background-color: black;
+    max-height: 25%;
+    top: 74%;
+    background-color: rgba(0,0,0,0.5);
+    /*opacity: .3;
+    background-color: black;*/
+}
+
+.container-no-margin{
+    width: 100%;
+    margin-top: 50px;
 }
 
 .container{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 50px;
+    width: 90%;
+}
+
+.overlay-text{
+    opacity: 1;
+    font-weight: bold;
+    font-size: calc(14px + .2vw);
+}
+
+.overlay-container{
     position: relative;
+    width: 100%;
+    display: inline-block;
+    color: white;
 }
-
-.background{
-    background-color: white;
-}
-
 /*  
 
 */
@@ -54,7 +130,6 @@ h2{
     top:0px;
     float:left;
 }
-
 
 .icon{
     filter: brightness(0) invert(1);
@@ -68,6 +143,7 @@ h2{
     top: 0px;
     left: 0px;
     height: 50px !important;
+    max-height: 50px !important;
     width:100%;
     padding-left: 10%;
     z-index: 1000;
@@ -172,10 +248,7 @@ h2{
 
 /*  */
 .row{
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 60px;
-    width: 90%;
+    display: relative;
 }
 
 .col{
@@ -183,11 +256,37 @@ h2{
     padding: 1em;
 }
 
+table{
+    border-collapse: collapse;
+}
+
+tr:nth-child(even) td{
+    background-color: rgba(0,0,0,0.2);
+}
+
+th{
+    text-align: left;
+    color: black;
+    background-color: rgba(0,0,0,0.3);
+}
+
+td{
+    color: black;
+    text-align: left;
+}
+
 /* only adds up to 49% (47 + 1% margin on both sides)
    This is because each element has a Teeeny tiny amount of white space  
    If we do 48% with 1% margin, we cannot fit 2 elements per line.
 */
 .inline-half{
+    position: relative;
+    float: right;
+    width: 47%;
+    margin: 1%;
+}
+
+.inline-half-left{
     position: relative;
     float: left;
     width: 47%;
@@ -206,7 +305,25 @@ h2{
     margin: 1%;
 }
 
+.inline-3-quarter{
+    position: relative;
+    float: left; 
+    width: 72%;
+    margin: 1%;
+}
+
+
 .inline-half > *{
     width:100%;
+    height: auto;
+}
+
+.inline-quater > *{
+    width: 100%;
+    height: auto;
+}
+
+.inline-half-left > *{
+    width: 100%;
     height: auto;
 }
