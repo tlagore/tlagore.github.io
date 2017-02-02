@@ -200,6 +200,7 @@ h3 > a{
 }
 
 .header-std-element:before, .header-main-element:before{
+    /* not necessary for underline */
     content: "";
     position: absolute;
     
@@ -208,7 +209,8 @@ h3 > a{
     left: 12.5%;
     height: 2px;
     bottom: 10px;
-    
+
+    /* underline begins here */
     background-color: white;
     visibility: hidden;
     -webkit-transform: scaleX(0);
@@ -217,6 +219,7 @@ h3 > a{
     transition: all 0.5s ease-in-out 0s;
 }
 
+/* underline animation */
 .header-std-element:hover:before, .header-main-element:hover:before{
     visibility: visible;
     -webkit-transform: scaleX(1);

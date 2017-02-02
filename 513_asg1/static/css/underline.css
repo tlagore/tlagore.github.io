@@ -1,0 +1,26 @@
+.header-std-element:before, .header-main-element:before{
+    /* not necessary for underline */
+    content: "";
+    position: absolute;
+    
+    /* width 75%, 12.5% on left to give a 12.5% margin on both sides of underline */
+    width: 75%;
+    left: 12.5%;
+    height: 2px;
+    bottom: 10px;
+
+    /* underline begins here */
+    background-color: white;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    transition: all 0.5s ease-in-out 0s;
+}
+
+/* underline animation */
+.header-std-element:hover:before, .header-main-element:hover:before{
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1)
+}
