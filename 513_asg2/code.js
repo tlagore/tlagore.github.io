@@ -1,6 +1,12 @@
 function getStats(txt) {
     // you need to write your own code here
     
+	var Utils = {
+		strip: function(text){
+			return (text.replace(/[\s*]/, ''));
+		}
+	}
+	
     var TextParse = {
 	utils:{
 	    numChars: function(text){
@@ -22,6 +28,7 @@ function getStats(txt) {
 	    numNonEmptyLines: function(text){
 		let strs = text.split('\n');
 		let numEmpty = 0;
+		
 		for(let value of strs){
 		    if(value !== ""){
 			numEmpty++;
@@ -65,7 +72,8 @@ function getStats(txt) {
 		//alert(stackified);
 		
 		for(let value of strs){
-		    if(value.length > 0){
+			value = value.toLowerCase();
+		    if(value.length > 1){
 
 			for(let i = 0; i < value.length; i++){
 			    stackified.push(value[i]);
@@ -107,8 +115,9 @@ function getStats(txt) {
 					count.push(1);
 				}
 			}
-
-			alert(visited + count);
+		},
+		strip: function(text){
+			alert("hello");
 		}
 	}
     };
