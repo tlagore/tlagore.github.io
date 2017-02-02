@@ -88,10 +88,28 @@ function getStats(txt) {
 	    },
 	    tenLongestWords: function(text){
 		let strs = text.split(/[^A-Za-z0-9]/);
-		strs.sort(function(a,b){ return a.length > b.length ? -1 : 1 });
-		alert(strs);
-		return strs;
-	    }
+		//(((is a length greater than b length ? place a before b) [else] Is a.length = b.length ? is a before b in the alphabet ? place a before b [else] place b before a) [else] place b before a
+		//note that below abuses that "abcd" < "bbcd" in javascript, ie if a < b, a is lexiographically prior to b.
+		strs.sort(function(a,b){ return a.length > b.length ? -1 : a.length == b.length ? a < b ? -1 : 1 : 1 });	
+		return strs.slice(1,11);
+	    },
+		tenMostFrequentWords: function(text){
+			let strs = text.split(/[^A-Za-z0-9]/);
+			let visited = [];
+			let count = [];
+
+			for(let value of strs){
+				let index = visited.indexOf(value);
+				if(index > -1){
+					count[index]++;
+				}else{
+					visited.push(value);
+					count.push(1);
+				}
+			}
+
+			alert(visited + count);
+		}
 	}
     };
     
@@ -104,6 +122,6 @@ function getStats(txt) {
         maxLineLength: TextParse.utils.maxLineLength(txt),
         allPalindromes: TextParse.utils.palindromes(txt),
         tenLongestWords: TextParse.utils.tenLongestWords(txt),
-        tenMostFrequentWords: ["a", "this", "the"]
+        tenMostFrequentWords: TextParse.utils.tenMostFrequentWords(txt)
     };
 }
