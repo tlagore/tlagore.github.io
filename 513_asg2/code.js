@@ -1,12 +1,20 @@
 function getStats(txt) {
     // you need to write your own code here
-    
-	var Utils = {
-		strip: function(text){
-			return (text.replace(/[\s*]/, ''));
+
+    /*
+
+     */
+    var Utils = {
+	freqContains: function(arr, element){
+	    for(let i = 0; i < arr.length; i++){
+		if(arr[i][0] === element){
+		    return i;
 		}
+	    }
+	    return -1;
 	}
-	
+    }
+    
     var TextParse = {
 	utils:{
 	    numChars: function(text){
@@ -30,7 +38,7 @@ function getStats(txt) {
 		let numEmpty = 0;
 		
 		for(let value of strs){
-		    if(value !== ""){
+		    if(value.replace(/\s/g,"") !== ""){
 			numEmpty++;
 		    }
 		}
@@ -61,18 +69,18 @@ function getStats(txt) {
 
 		return maxLength;
 	    },
+
+	    /*
+	      
+	     */
 	    palindromes: function(text){
 		let strs = text.split(/[^A-Za-z0-9]/);
 		let palindromes = [];
 		let stackified = [];
 		let unstackified = [];
 
-		//let string = ['H','e','l','l','o'];
-		//stackified.push(string[0]);
-		//alert(stackified);
-		
 		for(let value of strs){
-			value = value.toLowerCase();
+		    value = value.toLowerCase();
 		    if(value.length > 1){
 
 			for(let i = 0; i < value.length; i++){
@@ -94,31 +102,63 @@ function getStats(txt) {
 		}
 		return palindromes;
 	    },
+	    /* 
+	       tenLongestWords takes in some text and outputs (up to) ten of the largest words.
+	       if there are multiple words of the same length, they are sorted alphabetically.
+	     */
 	    tenLongestWords: function(text){
 		let strs = text.split(/[^A-Za-z0-9]/);
-		//(((is a length greater than b length ? place a before b) [else] Is a.length = b.length ? is a before b in the alphabet ? place a before b [else] place b before a) [else] place b before a
-		//note that below abuses that "abcd" < "bbcd" in javascript, ie if a < b, a is lexiographically prior to b.
-		strs.sort(function(a,b){ return a.length > b.length ? -1 : a.length == b.length ? a < b ? -1 : 1 : 1 });	
-		return strs.slice(1,11);
-	    },
-		tenMostFrequentWords: function(text){
-			let strs = text.split(/[^A-Za-z0-9]/);
-			let visited = [];
-			let count = [];
 
-			for(let value of strs){
-				let index = visited.indexOf(value);
-				if(index > -1){
-					count[index]++;
-				}else{
-					visited.push(value);
-					count.push(1);
-				}
+		//note that below abuses that "abcd" < "bbcd" in javascript,
+		//ie if a < b, a is lexiographically prior to b.
+		strs.sort(
+		    function(a,b){
+			return a.length > b.length ? -1 : a.length == b.length ? a < b ? -1 : 1 : 1 }
+		);
+
+		//ensure all same case for unique comparisons
+		strs.forEach(function(element, index, self){
+		    self[index] = element.toLowerCase();
+		});
+
+		//only take unique words - remove empty words if any
+		let unique = strs.filter(function(element, index, self){
+		    return index == self.indexOf(element) && element !== '';
+		});
+
+		return unique.slice(0,10);
+	    },
+	    tenMostFrequentWords: function(text){
+		let strs = text.split(/[^A-Za-z0-9]/);
+		let visited = [];
+		let mostFrequent = [];
+
+		strs.forEach(function(val, index, array){
+		    let temp = val.toLowerCase();
+		    if(temp !== ''){
+			//have we already visited the string?
+			let index = Utils.freqContains(visited,temp);
+			//increment frequency
+			if(index > -1){
+			    visited[index][1]++;
+			}else{
+			    //else add to visited with frequency of 1
+			    visited.push([temp,1]);
 			}
-		},
-		strip: function(text){
-			alert("hello");
+		    }
+		});
+
+		//sort array by frequency then alphabetically
+		visited.sort(function(a,b){
+		    return a[1] > b[1] ? -1 : a[1] === b[1] ? a < b ? -1 : 1 : 1;
+		});
+
+		for(let value of visited){
+		    mostFrequent.push(value[0] + '(' + value[1] + ')');
 		}
+
+		return mostFrequent.slice(0,10);
+	    },
 	}
     };
     
