@@ -1,3 +1,11 @@
+/*
+  SENG513 Assignment 2
+  Author: Tyrone Lagore
+  SID: 10151950
+  email: tyrone.lagore@ucalgary.ca
+  url: tlagore.github.io/513_asg2/
+ */
+
 function getStats(txt) {
     /*
       utils handles some small utils functions
