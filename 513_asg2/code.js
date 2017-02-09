@@ -12,6 +12,21 @@ function getStats(txt) {
 		}
 	    }
 	    return -1;
+	},
+	sortLengthAlpha: function(a, b){
+	    let i = 0;
+	    if (a.length > b.length)
+		i = - 1
+	    else if (a.length === b.length)
+	    {
+		if(a < b)
+		    i = -1;
+		else
+		    i = 1;
+	    }else
+		i = 1;
+	    
+	    return i;
 	}
     }
     
@@ -111,10 +126,7 @@ function getStats(txt) {
 
 		//note that below abuses that "abcd" < "bbcd" in javascript,
 		//ie if a < b, a is lexiographically prior to b.
-		strs.sort(
-		    function(a,b){
-			return a.length > b.length ? -1 : a.length == b.length ? a < b ? -1 : 1 : 1 }
-		);
+		strs.sort(function(a,b){ return Utils.sortLengthAlpha(a,b)});
 
 		//ensure all same case for unique comparisons
 		strs.forEach(function(element, index, self){
