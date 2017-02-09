@@ -95,7 +95,7 @@ function getStats(txt) {
 
 	    for(let value of strs){
 		value = value.toLowerCase();
-		if(value.length > 1){
+		if(value.length >= 1){
 
 		    for(let i = 0; i < value.length; i++){
 			stackified.push(value[i]);
@@ -106,7 +106,8 @@ function getStats(txt) {
 			unstackified[j] = stackified.pop();
 		    }
 
-		    if (value === unstackified.join('')){
+
+		    if (value === unstackified.join('') && !palindromes.includes(value)){
 			palindromes.push(value);
 		    }
 		}
@@ -122,7 +123,7 @@ function getStats(txt) {
 	*/
 	tenLongestWords: function(text){
 	    let strs = text.split(/[^A-Za-z0-9]/);
-
+	    
 	    //note that below abuses that "abcd" < "bbcd" in javascript,
 	    //ie if a < b, a is lexiographically prior to b.
 	    strs.sort(function(a,b){ return Utils.sortLengthAlpha(a,b)});
