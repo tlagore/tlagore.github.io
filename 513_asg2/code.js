@@ -1,10 +1,11 @@
 function getStats(txt) {
-    // you need to write your own code here
-
     /*
-
+      utils handles some small utils functions
      */
     var Utils = {
+	/*
+	  checks if a frequency list contains an element
+	 */
 	freqContains: function(arr, element){
 	    for(let i = 0; i < arr.length; i++){
 		if(arr[i][0] === element){
@@ -13,6 +14,7 @@ function getStats(txt) {
 	    }
 	    return -1;
 	},
+	/* a sort function that sorts by frequency then alphabetically */
 	sortLengthAlpha: function(a, b){
 	    let i = 0;
 	    if (a.length > b.length)
@@ -31,9 +33,12 @@ function getStats(txt) {
     }
     
     var TextParse = {
+	//returns number of characters in a string
 	numChars: function(text){
 	    return text.length;
 	},
+
+	//returns number of words in a string
 	numWords: function(text){
 	    let strs = text.split(/[^A-Za-z0-9]/);
 	    let numWords = 0;
@@ -44,9 +49,13 @@ function getStats(txt) {
 	    }
 	    return numWords;
 	},
+
+	//returns the number of lines in a string
 	numLines: function(text){
 	    return text.split('\n').length;
 	},
+
+	//returns the number of non-empty lines in a string
 	numNonEmptyLines: function(text){
 	    let strs = text.split('\n');
 	    let numEmpty = 0;
@@ -59,6 +68,8 @@ function getStats(txt) {
 
 	    return numEmpty;
 	},
+
+	//returns the average word length of a string.
 	averageWordLength: function(text){
 	    let strs = text.split(/[^A-Za-z0-9]/);
 	    let avgLength = 0;
@@ -73,6 +84,8 @@ function getStats(txt) {
 
 	    return avgLength / numWords;
 	},
+
+	//returns the max line length of a string
 	maxLineLength: function(text){
 	    let strs = text.split("\n");
 	    let maxLength = 0;
@@ -85,7 +98,8 @@ function getStats(txt) {
 	},
 
 	/*
-	  
+	  returns all of the unique paldindromes found in a string
+	  in the order that they are found
 	 */
 	palindromes: function(text){
 	    let strs = text.split(/[^A-Za-z0-9]/);
@@ -140,6 +154,10 @@ function getStats(txt) {
 
 	    return unique.slice(0,10);
 	},
+
+	/*
+	  returns the 10 most frequent words first sorting by frequency then alphabetically in the event of a tie
+	 */
 	tenMostFrequentWords: function(text){
 	    let strs = text.split(/[^A-Za-z0-9]/);
 	    let visited = [];
